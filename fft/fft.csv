@@ -1,12 +1,12 @@
-# system info fft on 2026.02.08.12:35:21
+# system info fft on 2026.02.08.14:45:11
 system_info:
 name,value
 DEVICE,10M50DAF484C7G
 DEVICE_FAMILY,MAX 10
-GENERATION_ID,1770546919
+GENERATION_ID,1770554709
 #
 #
-# Files generated for fft on 2026.02.08.12:35:21
+# Files generated for fft on 2026.02.08.14:45:11
 files:
 filepath,kind,attributes,module,is_top
 simulation/fft.v,VERILOG,,fft,true

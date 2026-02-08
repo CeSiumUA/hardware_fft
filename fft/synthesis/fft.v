@@ -11,8 +11,8 @@ module fft (
 		input  wire [1:0]  sink_error,   //       .sink_error
 		input  wire        sink_sop,     //       .sink_sop
 		input  wire        sink_eop,     //       .sink_eop
-		input  wire [17:0] sink_real,    //       .sink_real
-		input  wire [17:0] sink_imag,    //       .sink_imag
+		input  wire [13:0] sink_real,    //       .sink_real
+		input  wire [13:0] sink_imag,    //       .sink_imag
 		input  wire [10:0] fftpts_in,    //       .fftpts_in
 		input  wire [0:0]  inverse,      //       .inverse
 		output wire        source_valid, // source.source_valid
@@ -20,8 +20,8 @@ module fft (
 		output wire [1:0]  source_error, //       .source_error
 		output wire        source_sop,   //       .source_sop
 		output wire        source_eop,   //       .source_eop
-		output wire [28:0] source_real,  //       .source_real
-		output wire [28:0] source_imag,  //       .source_imag
+		output wire [24:0] source_real,  //       .source_real
+		output wire [24:0] source_imag,  //       .source_imag
 		output wire [10:0] fftpts_out    //       .fftpts_out
 	);
 

@@ -20,8 +20,8 @@ module fft_fft_ii_0 (
 	input	sink_valid,
 	input	sink_sop,
 	input	sink_eop,
-	input	logic [17 : 0] sink_real,
-	input	logic [17 : 0] sink_imag,
+	input	logic [13 : 0] sink_real,
+	input	logic [13 : 0] sink_imag,
 	input	logic [1 : 0] sink_error,
 	input	source_ready,
    output [10 : 0] fftpts_out,
@@ -30,15 +30,15 @@ module fft_fft_ii_0 (
 	output source_sop,
 	output source_eop,
 	output source_valid,
-	output [28 : 0] source_real,
-	output [28 : 0] source_imag
+	output [24 : 0] source_real,
+	output [24 : 0] source_imag
 	);
 
 	auk_dspip_r22sdf_top #(
 		.DEVICE_FAMILY_g("MAX 10"),
 		.MAX_FFTPTS_g(1024),
 		.NUM_STAGES_g(5),
-		.DATAWIDTH_g(18),
+		.DATAWIDTH_g(14),
 		.TWIDWIDTH_g(18),
 		.MAX_GROW_g (11),
 		.TWIDROM_BASE_g("fft_fft_ii_0_"),

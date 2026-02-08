@@ -27,8 +27,8 @@ module fft (
 	input	[1:0]	sink_error;
 	input		sink_sop;
 	input		sink_eop;
-	input	[17:0]	sink_real;
-	input	[17:0]	sink_imag;
+	input	[13:0]	sink_real;
+	input	[13:0]	sink_imag;
 	input	[10:0]	fftpts_in;
 	input	[0:0]	inverse;
 	output		source_valid;
@@ -36,7 +36,7 @@ module fft (
 	output	[1:0]	source_error;
 	output		source_sop;
 	output		source_eop;
-	output	[28:0]	source_real;
-	output	[28:0]	source_imag;
+	output	[24:0]	source_real;
+	output	[24:0]	source_imag;
 	output	[10:0]	fftpts_out;
 endmodule

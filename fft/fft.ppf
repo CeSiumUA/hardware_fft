@@ -12,8 +12,8 @@
   <pin name="sink_error[1..0]" direction="input" scope="external" />
   <pin name="sink_sop" direction="input" scope="external" />
   <pin name="sink_eop" direction="input" scope="external" />
-  <pin name="sink_real[17..0]" direction="input" scope="external" />
-  <pin name="sink_imag[17..0]" direction="input" scope="external" />
+  <pin name="sink_real[13..0]" direction="input" scope="external" />
+  <pin name="sink_imag[13..0]" direction="input" scope="external" />
   <pin name="fftpts_in[10..0]" direction="input" scope="external" />
   <pin name="inverse" direction="input" scope="external" />
   <pin name="source_valid" direction="output" scope="external" />
@@ -21,8 +21,8 @@
   <pin name="source_error[1..0]" direction="output" scope="external" />
   <pin name="source_sop" direction="output" scope="external" />
   <pin name="source_eop" direction="output" scope="external" />
-  <pin name="source_real[28..0]" direction="output" scope="external" />
-  <pin name="source_imag[28..0]" direction="output" scope="external" />
+  <pin name="source_real[24..0]" direction="output" scope="external" />
+  <pin name="source_imag[24..0]" direction="output" scope="external" />
   <pin name="fftpts_out[10..0]" direction="output" scope="external" />
  </global>
 </pinplan>

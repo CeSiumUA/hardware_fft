@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EnsembleReport name="fft" kind="system" version="25.1" fabric="QSYS">
+<EnsembleReport name="nco" kind="system" version="25.1" fabric="QSYS">
  <!-- Format version 25.1 1129 (Future versions may contain additional information.) -->
- <!-- 2026.02.08.14:45:17 -->
+ <!-- 2026.02.08.15:26:26 -->
  <!-- A collection of modules and connections -->
  <parameter name="clockCrossingAdapter">
   <type>com.altera.sopcmodel.ensemble.EClockAdapter</type>
@@ -53,7 +53,7 @@
  </parameter>
  <parameter name="generationId">
   <type>int</type>
-  <value>1770554716</value>
+  <value>1770557185</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>true</visible>
@@ -101,7 +101,7 @@
  </parameter>
  <parameter name="projectName">
   <type>java.lang.String</type>
-  <value>hardware_fft.qpf</value>
+  <value></value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>false</visible>
@@ -147,7 +147,7 @@
   <visible>false</visible>
   <valid>true</valid>
  </parameter>
- <module name="fft_ii_0" kind="altera_fft_ii" version="25.1" path="fft_ii_0">
+ <module name="nco_ii_0" kind="altera_nco_ii" version="25.1" path="nco_ii_0">
   <!-- Describes a single module. Module parameters are
 the requested settings for a module instance. -->
   <parameter name="design_env">
@@ -159,111 +159,23 @@ the requested settings for a module instance. -->
    <valid>true</valid>
    <sysinfo_type>DESIGN_ENVIRONMENT</sysinfo_type>
   </parameter>
-  <parameter name="length">
-   <type>int</type>
-   <value>1024</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="data_flow">
+  <parameter name="arch">
    <type>java.lang.String</type>
-   <value>Variable Streaming</value>
+   <value>large_rom</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <parameter name="direction">
+  <parameter name="want_sin_and_cos">
    <type>java.lang.String</type>
-   <value>Bi-directional</value>
+   <value>dual_output</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <parameter name="data_rep">
-   <type>java.lang.String</type>
-   <value>Fixed Point</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="in_width">
-   <type>int</type>
-   <value>14</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="in_width_derived">
-   <type>int</type>
-   <value>14</value>
-   <derived>true</derived>
-   <enabled>true</enabled>
-   <visible>false</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="out_width">
-   <type>int</type>
-   <value>25</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="out_width_derived">
-   <type>int</type>
-   <value>25</value>
-   <derived>true</derived>
-   <enabled>true</enabled>
-   <visible>false</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="twid_width">
-   <type>int</type>
-   <value>18</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="twid_width_derived">
-   <type>int</type>
-   <value>18</value>
-   <derived>true</derived>
-   <enabled>true</enabled>
-   <visible>false</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="in_order">
-   <type>java.lang.String</type>
-   <value>Natural</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="out_order">
-   <type>java.lang.String</type>
-   <value>Natural</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="engine_arch">
-   <type>java.lang.String</type>
-   <value>Quad Output</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="num_engines">
+  <parameter name="numch">
    <type>int</type>
    <value>1</value>
    <derived>false</derived>
@@ -271,51 +183,19 @@ the requested settings for a module instance. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <parameter name="num_engines_derived">
+  <parameter name="numba">
    <type>int</type>
    <value>1</value>
-   <derived>true</derived>
-   <enabled>true</enabled>
-   <visible>false</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="dsp_resource_opt">
-   <type>boolean</type>
-   <value>false</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>false</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="hard_fp">
-   <type>boolean</type>
-   <value>false</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>false</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="hyper_opt">
-   <type>boolean</type>
-   <value>false</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <parameter name="CALC_LATENCY">
-   <type>int</type>
-   <value>1024</value>
-   <derived>true</derived>
-   <enabled>true</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="THROUGHPUT_LATENCY">
-   <type>int</type>
-   <value>2048</value>
-   <derived>true</derived>
-   <enabled>true</enabled>
+  <parameter name="use_dedicated_multipliers">
+   <type>boolean</type>
+   <value>true</value>
+   <derived>false</derived>
+   <enabled>false</enabled>
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
@@ -324,9 +204,169 @@ the requested settings for a module instance. -->
    <value>MAX10FPGA</value>
    <derived>false</derived>
    <enabled>true</enabled>
-   <visible>false</visible>
+   <visible>true</visible>
    <valid>true</valid>
    <sysinfo_type>DEVICE_FAMILY</sysinfo_type>
+  </parameter>
+  <parameter name="apr">
+   <type>int</type>
+   <value>32</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="apri">
+   <type>int</type>
+   <value>16</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="mpr">
+   <type>int</type>
+   <value>14</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="cordic_arch">
+   <type>java.lang.String</type>
+   <value>parallel</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>false</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="trig_cycles_per_output">
+   <type>int</type>
+   <value>1</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>false</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="cycles_per_output">
+   <type>int</type>
+   <value>1</value>
+   <derived>true</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="want_dither">
+   <type>boolean</type>
+   <value>true</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="dpri">
+   <type>int</type>
+   <value>4</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="fsamp">
+   <type>double</type>
+   <value>40.0</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="freq_out">
+   <type>double</type>
+   <value>0.390625</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="phi_inc">
+   <type>long</type>
+   <value>41943040</value>
+   <derived>true</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="real_freq_out">
+   <type>double</type>
+   <value>0.3906</value>
+   <derived>true</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="want_freq_mod">
+   <type>boolean</type>
+   <value>false</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="aprf">
+   <type>int</type>
+   <value>32</value>
+   <derived>false</derived>
+   <enabled>false</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="fmod_pipe">
+   <type>int</type>
+   <value>1</value>
+   <derived>false</derived>
+   <enabled>false</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="want_phase_mod">
+   <type>boolean</type>
+   <value>false</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="aprp">
+   <type>int</type>
+   <value>16</value>
+   <derived>false</derived>
+   <enabled>false</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="pmod_pipe">
+   <type>int</type>
+   <value>1</value>
+   <derived>false</derived>
+   <enabled>false</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="hyper_opt">
+   <type>boolean</type>
+   <value>false</value>
+   <derived>true</derived>
+   <enabled>true</enabled>
+   <visible>false</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="hyper_opt_select">
+   <type>boolean</type>
+   <value>false</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
   </parameter>
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -434,7 +474,7 @@ parameters are a RESULT of the module parameters. -->
     <role>reset_n</role>
    </port>
   </interface>
-  <interface name="sink" kind="conduit_end" version="25.1">
+  <interface name="in" kind="conduit_end" version="25.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -473,61 +513,19 @@ parameters are a RESULT of the module parameters. -->
    <type>conduit</type>
    <isStart>false</isStart>
    <port>
-    <name>sink_valid</name>
+    <name>clken</name>
     <direction>Input</direction>
     <width>1</width>
-    <role>sink_valid</role>
+    <role>clken</role>
    </port>
    <port>
-    <name>sink_ready</name>
-    <direction>Output</direction>
-    <width>1</width>
-    <role>sink_ready</role>
-   </port>
-   <port>
-    <name>sink_error</name>
+    <name>phi_inc_i</name>
     <direction>Input</direction>
-    <width>2</width>
-    <role>sink_error</role>
-   </port>
-   <port>
-    <name>sink_sop</name>
-    <direction>Input</direction>
-    <width>1</width>
-    <role>sink_sop</role>
-   </port>
-   <port>
-    <name>sink_eop</name>
-    <direction>Input</direction>
-    <width>1</width>
-    <role>sink_eop</role>
-   </port>
-   <port>
-    <name>sink_real</name>
-    <direction>Input</direction>
-    <width>14</width>
-    <role>sink_real</role>
-   </port>
-   <port>
-    <name>sink_imag</name>
-    <direction>Input</direction>
-    <width>14</width>
-    <role>sink_imag</role>
-   </port>
-   <port>
-    <name>fftpts_in</name>
-    <direction>Input</direction>
-    <width>11</width>
-    <role>fftpts_in</role>
-   </port>
-   <port>
-    <name>inverse</name>
-    <direction>Input</direction>
-    <width>1</width>
-    <role>inverse</role>
+    <width>32</width>
+    <role>phi_inc_i</role>
    </port>
   </interface>
-  <interface name="source" kind="conduit_end" version="25.1">
+  <interface name="out" kind="conduit_end" version="25.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -570,61 +568,31 @@ parameters are a RESULT of the module parameters. -->
    <type>conduit</type>
    <isStart>false</isStart>
    <port>
-    <name>source_valid</name>
+    <name>fsin_o</name>
+    <direction>Output</direction>
+    <width>14</width>
+    <role>fsin_o</role>
+   </port>
+   <port>
+    <name>fcos_o</name>
+    <direction>Output</direction>
+    <width>14</width>
+    <role>fcos_o</role>
+   </port>
+   <port>
+    <name>out_valid</name>
     <direction>Output</direction>
     <width>1</width>
-    <role>source_valid</role>
-   </port>
-   <port>
-    <name>source_ready</name>
-    <direction>Input</direction>
-    <width>1</width>
-    <role>source_ready</role>
-   </port>
-   <port>
-    <name>source_error</name>
-    <direction>Output</direction>
-    <width>2</width>
-    <role>source_error</role>
-   </port>
-   <port>
-    <name>source_sop</name>
-    <direction>Output</direction>
-    <width>1</width>
-    <role>source_sop</role>
-   </port>
-   <port>
-    <name>source_eop</name>
-    <direction>Output</direction>
-    <width>1</width>
-    <role>source_eop</role>
-   </port>
-   <port>
-    <name>source_real</name>
-    <direction>Output</direction>
-    <width>25</width>
-    <role>source_real</role>
-   </port>
-   <port>
-    <name>source_imag</name>
-    <direction>Output</direction>
-    <width>25</width>
-    <role>source_imag</role>
-   </port>
-   <port>
-    <name>fftpts_out</name>
-    <direction>Output</direction>
-    <width>11</width>
-    <role>fftpts_out</role>
+    <role>out_valid</role>
    </port>
   </interface>
  </module>
  <plugin>
   <instanceCount>1</instanceCount>
-  <name>altera_fft_ii</name>
+  <name>altera_nco_ii</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>FFT</displayName>
+  <displayName>NCO</displayName>
   <version>25.1</version>
  </plugin>
  <plugin>
@@ -652,5 +620,5 @@ parameters are a RESULT of the module parameters. -->
   <version>25.1</version>
  </plugin>
  <reportVersion>25.1 1129</reportVersion>
- <uniqueIdentifier>00FF1C524D240000019C3D48F359</uniqueIdentifier>
+ <uniqueIdentifier>00FF1C524D240000019C3D6EA084</uniqueIdentifier>
 </EnsembleReport>
