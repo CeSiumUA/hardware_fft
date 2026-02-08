@@ -1,0 +1,6 @@
+DATE = "08:47:33 February 08, 2026"
+QUARTUS_VERSION = "16.0.0"
+
+# Revisions
+
+PROJECT_REVISION = "hardware_fft"
