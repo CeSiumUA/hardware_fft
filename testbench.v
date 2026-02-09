@@ -30,10 +30,6 @@ nco nco_inst(
     .out_valid (out_valid)  //    .out_valid
 );
 
-
-
-
-
 fft_wrapper fft_wrapper_inst
 (
     .clk(clk) , // input  clk_sig

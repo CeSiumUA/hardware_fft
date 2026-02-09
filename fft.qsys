@@ -68,7 +68,7 @@
  <module
    name="fft_ii_0"
    kind="altera_fft_ii"
-   version="25.1"
+   version="20.1"
    enabled="1"
    autoexport="1">
   <parameter name="data_flow" value="Variable Streaming" />

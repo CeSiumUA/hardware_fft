@@ -1,12 +1,12 @@
-# system info nco on 2026.02.09.07:19:35
+# system info nco on 2026.02.09.07:40:53
 system_info:
 name,value
 DEVICE,10M50DAF484C7G
 DEVICE_FAMILY,MAX 10
-GENERATION_ID,1770614374
+GENERATION_ID,1770615651
 #
 #
-# Files generated for nco on 2026.02.09.07:19:35
+# Files generated for nco on 2026.02.09.07:40:53
 files:
 filepath,kind,attributes,module,is_top
 simulation/nco.v,VERILOG,,nco,true
