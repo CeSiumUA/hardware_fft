@@ -16,7 +16,7 @@ initial begin
     sink_valid = 0;
     sink_ready = 1;
     sink_error = 2'b00;
-    fft_pts = 11'd1024;
+    fft_pts = 11'd1023;
 end
 
 assign outreal = insignal;

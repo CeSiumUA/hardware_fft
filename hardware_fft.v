@@ -52,12 +52,30 @@ module hardware_fft(
 //=======================================================
 
 
-
+wire [23:0] seg_disp_signal;
 
 //=======================================================
 //  Structural coding
 //=======================================================
 
+uart uart_0(
+	.clk(MAX10_CLK1_50),
+	.RxD(ARDUINO_IO[0]),
+	.TxD(ARDUINO_IO[1]),
+	.RxD_data_ready(),
+	.RxD_data(seg_disp_signal[7:0]),
+	.TxD_data(),
+	.TxD_start()
+);
 
+SEG7_LUT_6 seg7_lut_6_0(
+	.iDIG(seg_disp_signal),
+	.oSEG0(HEX0),
+	.oSEG1(HEX1),
+	.oSEG2(HEX2),
+	.oSEG3(HEX3),
+	.oSEG4(HEX4),
+	.oSEG5(HEX5)
+);
 
 endmodule
