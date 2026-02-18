@@ -4,7 +4,7 @@ module testbench;
 reg clk;
 
 wire [13:0] fsin_o,fcos_o;
-wire [24:0] real_power_sig, imag_power_sig;
+wire [13:0] real_power_sig, imag_power_sig;
 
 
 initial
