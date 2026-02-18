@@ -179,10 +179,8 @@ set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name SIP_FILE nco/simulation/nco.sip
-set_global_assignment -name QIP_FILE nco/synthesis/nco.qip
 set_global_assignment -name VERILOG_FILE control_fft.v
 set_global_assignment -name VERILOG_FILE fft_wrapper.v
-set_global_assignment -name QIP_FILE fft/synthesis/fft.qip
 set_global_assignment -name SIP_FILE fft/simulation/fft.sip
 set_global_assignment -name VERILOG_FILE testbench.v
 set_global_assignment -name SDC_FILE hardware_fft.SDC
