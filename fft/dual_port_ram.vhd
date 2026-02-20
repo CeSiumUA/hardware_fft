@@ -27,7 +27,7 @@ entity dual_port_ram is
    );
    port(
       clock      :  in  std_logic;
-      reset      :  in  std_logic;
+      reset_n      :  in  std_logic;
 
       acc        :  in  std_logic;
       solo       :  in  std_logic;
@@ -48,10 +48,10 @@ architecture arch of dual_port_ram is
 
    signal ram : ram_t((2**ADDR_BITS-1) downto 0);
 begin
-   sync : process(clock, reset)
+   sync : process(clock, reset_n)
       variable add_a, add_b : integer;
    begin
-      if (reset = '1') then
+      if (reset_n = '0') then
          for i in ram'range loop
             ram(i) <= ( others => '0' );
          end loop;
@@ -88,7 +88,7 @@ architecture synth of dual_port_ram is
 
    shared variable ram : ram_t((2**ADDR_BITS-1) downto 0);
 begin
-   synca : process(clock, reset)
+   synca : process(clock, reset_n)
       variable addra : integer;
    begin
       if (rising_edge(clock)) then
@@ -100,7 +100,7 @@ begin
       end if;
    end process;
 
-   syncb : process(clock, reset)
+   syncb : process(clock, reset_n)
       variable addrb : integer;
    begin
       if (rising_edge(clock)) then

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <deploy
- date="2026.02.18.06:51:08"
+ date="2026.02.19.07:09:15"
  outputDirectory="D:/repos/hardware_fft/nco/">
  <perimeter>
   <parameter
@@ -78,13 +78,13 @@
  </perimeter>
  <entity
    path=""
-   parameterizationKey="nco:1.0:AUTO_CLK_CLOCK_DOMAIN=-1,AUTO_CLK_CLOCK_RATE=-1,AUTO_CLK_RESET_DOMAIN=-1,AUTO_DEVICE=10M50DAF484C7G,AUTO_DEVICE_FAMILY=MAX 10,AUTO_DEVICE_SPEEDGRADE=7,AUTO_GENERATION_ID=1771390267,AUTO_UNIQUE_ID=(altera_nco_ii:20.1:apr=32,aprf=32,apri=16,aprp=16,arch=large_rom,cordic_arch=parallel,cycles_per_output=1,design_env=NATIVE,dpri=4,fmod_pipe=1,freq_out=0.390625,fsamp=40.0,hyper_opt=false,hyper_opt_select=false,mpr=14,numba=1,numch=1,phi_inc=41943040,pmod_pipe=1,real_freq_out=0.3906,selected_device_family=MAX 10,trig_cycles_per_output=1,use_dedicated_multipliers=true,want_dither=true,want_freq_mod=false,want_phase_mod=false,want_sin_and_cos=dual_output)"
+   parameterizationKey="nco:1.0:AUTO_CLK_CLOCK_DOMAIN=-1,AUTO_CLK_CLOCK_RATE=-1,AUTO_CLK_RESET_DOMAIN=-1,AUTO_DEVICE=10M50DAF484C7G,AUTO_DEVICE_FAMILY=MAX 10,AUTO_DEVICE_SPEEDGRADE=7,AUTO_GENERATION_ID=1771477754,AUTO_UNIQUE_ID=(altera_nco_ii:20.1:apr=32,aprf=32,apri=16,aprp=16,arch=large_rom,cordic_arch=parallel,cycles_per_output=1,design_env=NATIVE,dpri=4,fmod_pipe=1,freq_out=5.0,fsamp=40.0,hyper_opt=false,hyper_opt_select=false,mpr=14,numba=1,numch=1,phi_inc=536870912,pmod_pipe=1,real_freq_out=5.0,selected_device_family=MAX 10,trig_cycles_per_output=1,use_dedicated_multipliers=true,want_dither=true,want_freq_mod=false,want_phase_mod=false,want_sin_and_cos=dual_output)"
    instancePathKey="nco"
    kind="nco"
    version="1.0"
    name="nco">
   <parameter name="AUTO_CLK_CLOCK_RATE" value="-1" />
-  <parameter name="AUTO_GENERATION_ID" value="1771390267" />
+  <parameter name="AUTO_GENERATION_ID" value="1771477754" />
   <parameter name="AUTO_DEVICE" value="10M50DAF484C7G" />
   <parameter name="AUTO_DEVICE_FAMILY" value="MAX 10" />
   <parameter name="AUTO_CLK_RESET_DOMAIN" value="-1" />
@@ -182,7 +182,7 @@
  </entity>
  <entity
    path="submodules/"
-   parameterizationKey="altera_nco_ii:20.1:apr=32,aprf=32,apri=16,aprp=16,arch=large_rom,cordic_arch=parallel,cycles_per_output=1,design_env=NATIVE,dpri=4,fmod_pipe=1,freq_out=0.390625,fsamp=40.0,hyper_opt=false,hyper_opt_select=false,mpr=14,numba=1,numch=1,phi_inc=41943040,pmod_pipe=1,real_freq_out=0.3906,selected_device_family=MAX 10,trig_cycles_per_output=1,use_dedicated_multipliers=true,want_dither=true,want_freq_mod=false,want_phase_mod=false,want_sin_and_cos=dual_output"
+   parameterizationKey="altera_nco_ii:20.1:apr=32,aprf=32,apri=16,aprp=16,arch=large_rom,cordic_arch=parallel,cycles_per_output=1,design_env=NATIVE,dpri=4,fmod_pipe=1,freq_out=5.0,fsamp=40.0,hyper_opt=false,hyper_opt_select=false,mpr=14,numba=1,numch=1,phi_inc=536870912,pmod_pipe=1,real_freq_out=5.0,selected_device_family=MAX 10,trig_cycles_per_output=1,use_dedicated_multipliers=true,want_dither=true,want_freq_mod=false,want_phase_mod=false,want_sin_and_cos=dual_output"
    instancePathKey="nco:.:nco_ii_0"
    kind="altera_nco_ii"
    version="20.1"
@@ -209,11 +209,11 @@
   <parameter name="want_freq_mod" value="false" />
   <parameter name="use_dedicated_multipliers" value="true" />
   <parameter name="want_sin_and_cos" value="dual_output" />
-  <parameter name="phi_inc" value="41943040" />
+  <parameter name="phi_inc" value="536870912" />
   <parameter name="fmod_pipe" value="1" />
   <parameter name="arch" value="large_rom" />
-  <parameter name="freq_out" value="0.390625" />
-  <parameter name="real_freq_out" value="0.3906" />
+  <parameter name="freq_out" value="5.0" />
+  <parameter name="real_freq_out" value="5.0" />
   <generatedFiles>
    <file
        path="D:/repos/hardware_fft/nco/synthesis/submodules/asj_nco_mob_rw.v"

@@ -51,10 +51,11 @@ control_for_fft control_for_fft_longer_inst(
 );
 
 fft #(
-    .BITS(FFT_BITS)
+    .BITS(FFT_BITS),
+    .N(1024)
 ) fft_inst(
     .clock(clk),
-    .reset(reset_n),
+    .reset_n(reset_n),
     // .sink_valid(sink_valid),
     // .sink_ready(sink_ready),
     // .sink_error(2'b00),

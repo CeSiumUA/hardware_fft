@@ -29,7 +29,7 @@ entity fft is
    );
    port(
       clock      :  in  std_logic;
-      reset      :  in  std_logic;
+      reset_n      :  in  std_logic;
 
       inverse    :  in  std_logic;
       in_real    :  in  std_logic_vector(BITS-1 downto 0);
@@ -66,10 +66,10 @@ architecture mult of fft is
 
 begin
 
-   sync : process(clock, reset)
+   sync : process(clock, reset_n)
       variable tmp_idx : natural range 0 to PARALLEL;
    begin
-      if (reset = '1') then
+      if (reset_n = '0') then
          in_idx  <= 0;
          out_idx <= 0;
          in_mask <= std_logic_vector(to_unsigned(1, PARALLEL));
@@ -100,7 +100,7 @@ begin
             BITS => BITS
          ) port map(
             clock      => clock,
-            reset      => reset,
+            reset_n    => reset_n,
             inverse    => inverse,
             in_real    => in_real,
             in_imag    => in_imag,
@@ -340,7 +340,7 @@ begin
          )
          port map(
             clock      => clock,
-            reset      => reset,
+            reset_n    => reset_n,
 
             acc        => muxed_mbc(i).acc,
             solo       => muxed_mbc(i).solo,
@@ -364,9 +364,9 @@ begin
    comp_mbc.write  <= bf_pl(3).valid;
    comp_mbc.solo   <= '0';
 
-   sync : process(clock, reset)
+   sync : process(clock, reset_n)
    begin
-      if (reset = '1') then
+      if (reset_n = '0') then
          current <= NULL_STATE_T;
          bf_pl(1).addr_a <= ( others => '0' );
          bf_pl(1).addr_b <= ( others => '0' );
@@ -383,7 +383,7 @@ begin
       end if;
    end process;
 
-   butterfly : process(clock, reset)
+   butterfly : process(clock, reset_n)
    begin
       if (rising_edge(clock)) then
          mix.i <= resize(shift_right(bf_pl(1).B.i * bf_pl(1).TW.i - bf_pl(1).B.q * bf_pl(1).TW.q, BITS-1-POSTBITS), PIPELINE_BITS);

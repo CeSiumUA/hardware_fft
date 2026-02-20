@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EnsembleReport name="nco" kind="nco" version="1.0" fabric="QSYS">
  <!-- Format version 20.1 711 (Future versions may contain additional information.) -->
- <!-- 2026.02.18.06:51:07 -->
+ <!-- 2026.02.19.07:09:14 -->
  <!-- A collection of modules and connections -->
  <parameter name="AUTO_GENERATION_ID">
   <type>java.lang.Integer</type>
-  <value>1771390267</value>
+  <value>1771477754</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>false</visible>
@@ -230,7 +230,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="freq_out">
    <type>double</type>
-   <value>0.390625</value>
+   <value>5.0</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -238,7 +238,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="phi_inc">
    <type>long</type>
-   <value>41943040</value>
+   <value>536870912</value>
    <derived>true</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -246,7 +246,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="real_freq_out">
    <type>double</type>
-   <value>0.3906</value>
+   <value>5.0</value>
    <derived>true</derived>
    <enabled>true</enabled>
    <visible>true</visible>
