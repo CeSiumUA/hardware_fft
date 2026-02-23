@@ -33,6 +33,11 @@ architecture arch of fft_tb is
    signal in_sop   : std_logic;
    signal in_eop   : std_logic;
 
+   signal out_real  : std_logic_vector(15 downto 0);
+   signal out_imag  : std_logic_vector(15 downto 0);
+   signal out_error : std_logic;
+   signal out_valid : std_logic;
+
    type lut_t is array(natural range <>) of integer;
 
    signal lut : lut_t(0 to 127) := (
@@ -110,10 +115,10 @@ begin
          in_sop     => in_sop,
          in_eop     => in_eop,
 
-         out_real   => open,
-         out_imag   => open,
-         out_error  => open,
-         out_valid  => open
+         out_real   => out_real,
+         out_imag   => out_imag,
+         out_error  => out_error,
+         out_valid  => out_valid
       );
 
 end architecture;
