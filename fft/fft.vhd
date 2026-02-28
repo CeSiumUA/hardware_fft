@@ -475,7 +475,7 @@ begin
                future.write_idx <= current.write_idx + 1;
                future.count <= current.count + 1;
                if (current.write_idx = (N/2)) then
-                  future.mbc(0).addr_a <= reverse_bit_order(current.write_idx-32);
+                  future.mbc(0).addr_a <= reverse_bit_order(current.write_idx-N/2);
                   future.mbc(0).addr_b <= reverse_bit_order(current.write_idx);
                   future.N2_sample.i  <= resize(signed(in_real), PIPELINE_BITS);
                   future.N2_sample.q  <= resize(signed(in_imag), PIPELINE_BITS);
@@ -499,7 +499,7 @@ begin
                future.count <= current.count + 1;
                future.write_idx <= current.write_idx + 1;
                future.bf_ready    <= '1';
-               future.mbc(0).addr_a <= reverse_bit_order(current.write_idx-32);
+               future.mbc(0).addr_a <= reverse_bit_order(current.write_idx-N/2);
                future.mbc(0).addr_b <= reverse_bit_order(current.write_idx);
                future.mbc(0).acc    <= '1';
                future.N2_sample.i <= resize(signed(in_real), PIPELINE_BITS);
