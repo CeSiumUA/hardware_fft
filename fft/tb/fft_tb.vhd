@@ -38,7 +38,7 @@ architecture arch of fft_tb is
    signal out_error : std_logic;
    signal out_valid : std_logic;
 
-   -- ch1_slice.bin: 128 bytes = 32 interleaved int16 IQ pairs (little-endian)
+   -- gen_samples.bin: 128 bytes = 32 interleaved int16 IQ pairs (little-endian)
    constant N : integer := 32;
 
    -- Convert two bytes (little-endian) into a signed 16-bit integer
@@ -74,9 +74,9 @@ begin
       in_eop     <= '0';
 
       -- Read IQ data from binary file (int16 little-endian, interleaved I Q)
-      file_open(status, data_file, "ch1_slice.bin", read_mode);
+      file_open(status, data_file, "gen_samples.bin", read_mode);
       assert status = open_ok
-         report "Failed to open ch1_slice.bin" severity failure;
+         report "Failed to open gen_samples.bin" severity failure;
 
       for i in 0 to N-1 loop
          read(data_file, lo);
