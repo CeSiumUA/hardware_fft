@@ -193,17 +193,6 @@ set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id fft_tb
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME fft_tb -section_id fft_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE testbench.v -section_id testbench
 set_global_assignment -name EDA_TEST_BENCH_FILE fft/tb/fft_tb.vhd -section_id fft_tb
-set_global_assignment -name VHDL_FILE fft/dual_port_ram.vhd
-set_global_assignment -name VHDL_FILE fft/fft.vhd
-set_global_assignment -name QIP_FILE nco/synthesis/nco.qip
-set_global_assignment -name SIP_FILE nco/simulation/nco.sip
-set_global_assignment -name VERILOG_FILE control_fft.v
-set_global_assignment -name VERILOG_FILE fft_wrapper.v
-set_global_assignment -name VERILOG_FILE testbench.v
-set_global_assignment -name SDC_FILE hardware_fft.SDC
-set_global_assignment -name VERILOG_FILE uart/uart.v
-set_global_assignment -name VERILOG_FILE seg_disp/seg7_lut.v
-set_global_assignment -name VERILOG_FILE seg_disp/seg7_lut_6.v
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
@@ -336,4 +325,16 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ARDUINO_IO[13]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ARDUINO_IO[14]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ARDUINO_IO[15]
 set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to ARDUINO_RESET_N
+set_global_assignment -name BINARY_FILE fft/tb/ch1_slice.bin
+set_global_assignment -name VHDL_FILE fft/dual_port_ram.vhd
+set_global_assignment -name VHDL_FILE fft/fft.vhd
+set_global_assignment -name QIP_FILE nco/synthesis/nco.qip
+set_global_assignment -name SIP_FILE nco/simulation/nco.sip
+set_global_assignment -name VERILOG_FILE control_fft.v
+set_global_assignment -name VERILOG_FILE fft_wrapper.v
+set_global_assignment -name VERILOG_FILE testbench.v
+set_global_assignment -name SDC_FILE hardware_fft.SDC
+set_global_assignment -name VERILOG_FILE uart/uart.v
+set_global_assignment -name VERILOG_FILE seg_disp/seg7_lut.v
+set_global_assignment -name VERILOG_FILE seg_disp/seg7_lut_6.v
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

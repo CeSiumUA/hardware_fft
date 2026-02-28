@@ -38,45 +38,65 @@ architecture arch of fft_tb is
    signal out_error : std_logic;
    signal out_valid : std_logic;
 
-   type lut_t is array(natural range <>) of integer;
+   -- ch1_slice.bin: 128 bytes = 32 interleaved int16 IQ pairs (little-endian)
+   constant N : integer := 32;
 
-   signal lut : lut_t(0 to 127) := (
-   750, 402, 700, -439, -96, 909, -496, -7, -711, 76, 601, 764, 315, -192, -633, 411,
-   -139, -540, -640, -360, -172, 821, 291, 160, -678, 9, -241, -679, -293, 69, -172, 565,
-   999, -356, -19, 515, -498, 438, 693, 78, 209, -276, 131, -865, 487, 465, 35, 454,
-   437, -480, -45, -324, -991, -86, 2, -471, -38, -805, -621, 543, 397, 170, 606, -797,
-   369, 546, 591, 150, -17, -1095, -684, 109, -450, 760, -478, -573, -409, -66, 484, 682,
-   201, -826, -192, -695, 819, 16, 172, -403, -660, -342, 14, 443, -389, 544, -339, -734,
-   -141, -366, -626, 381, 382, 280, 235, 624, -980, -218, 54, 333, 506, 333, 114, -944,
-   566, 46, -48, 305, -20, 457, 740, -56, 197, -919, 295, 522, 20, -2, -712, 438
-   );
+   -- Convert two bytes (little-endian) into a signed 16-bit integer
+   function to_int16(lo, hi : character) return integer is
+      variable val : unsigned(15 downto 0);
+   begin
+      val(7 downto 0)  := to_unsigned(character'pos(lo), 8);
+      val(15 downto 8) := to_unsigned(character'pos(hi), 8);
+      return to_integer(signed(val));
+   end function;
 
-   signal ilut : lut_t(0 to 63) := (
-      0, 1, -1, -1, -1, 1, -1, 1, -1, -1, -1, 1, 1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1,
-      -1, 1, -1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, -1, 1, 1, 1, -1, 1, 1, -1,
-      -1, -1, -1, 1, -1, -1, -1, -1, -1, 1, 1, -1, -1, 1, 1, -1 );
-
-
-
-
-   constant N : integer := 64;
 begin
    clock <= not clock after 6.25 ns;
    reset_n <= '0', '1' after 50 ns;
 
    process
+      type char_file_t is file of character;
+      file data_file : char_file_t;
+      variable status  : file_open_status;
+      variable lo, hi  : character;
+      variable i_val   : integer;
+      variable q_val   : integer;
+
+      -- Store samples so we can replay them multiple times
+      type sample_arr_t is array(0 to N-1) of integer;
+      variable samples_i : sample_arr_t;
+      variable samples_q : sample_arr_t;
    begin
       in_real    <= ( others => '0' );
       in_imag    <= ( others => '0' );
       in_valid   <= '0';
       in_sop     <= '0';
       in_eop     <= '0';
+
+      -- Read IQ data from binary file (int16 little-endian, interleaved I Q)
+      file_open(status, data_file, "ch1_slice.bin", read_mode);
+      assert status = open_ok
+         report "Failed to open ch1_slice.bin" severity failure;
+
+      for i in 0 to N-1 loop
+         read(data_file, lo);
+         read(data_file, hi);
+         samples_i(i) := to_int16(lo, hi);
+
+         read(data_file, lo);
+         read(data_file, hi);
+         samples_q(i) := to_int16(lo, hi);
+      end loop;
+      file_close(data_file);
+
       wait for 100 ns;
-      for iz in 0 to 80 loop
+
+      -- Feed data into FFT (replay a few times to observe steady-state)
+      for iz in 0 to 3 loop
          for i in 0 to N-1 loop
             wait until rising_edge(clock);
-            in_real    <= std_logic_vector(to_signed(4096*ilut(i), in_real'high + 1));
-            in_imag    <= ( others => '0' ); --std_logic_vector(to_signed(lut(i*2+1), in_real'high + 1));
+            in_real    <= std_logic_vector(to_signed(samples_i(i), 16));
+            in_imag    <= std_logic_vector(to_signed(samples_q(i), 16));
             in_valid   <= '1';
             if (i = 0) then
                in_sop     <= '1';
@@ -108,7 +128,7 @@ begin
          clock      => clock,
          reset_n    => reset_n,
 
-         inverse    => '1',
+         inverse    => '0',
          in_real    => in_real,
          in_imag    => in_imag,
          in_valid   => in_valid,
