@@ -37,6 +37,12 @@ architecture arch of fft_tb is
    signal out_imag  : std_logic_vector(15 downto 0);
    signal out_error : std_logic;
    signal out_valid : std_logic;
+   signal out_sop   : std_logic;
+   signal out_eop   : std_logic;
+
+   -- Peak detector outputs
+   signal peak_bin   : std_logic_vector(4 downto 0);  -- log2(32) = 5 bits
+   signal peak_valid : std_logic;
 
    -- gen_samples.bin: 128 bytes = 32 interleaved int16 IQ pairs (little-endian)
    constant N : integer := 32;
@@ -138,7 +144,26 @@ begin
          out_real   => out_real,
          out_imag   => out_imag,
          out_error  => out_error,
-         out_valid  => out_valid
+         out_valid  => out_valid,
+         out_sop    => out_sop,
+         out_eop    => out_eop
+      );
+
+   U_peak : entity work.peak_detector
+      generic map(
+         BITS  => 16,
+         N     => N
+      )
+      port map(
+         clock      => clock,
+         reset_n    => reset_n,
+         fft_real   => out_real,
+         fft_imag   => out_imag,
+         fft_valid  => out_valid,
+         fft_sop    => out_sop,
+         fft_eop    => out_eop,
+         peak_bin   => peak_bin,
+         peak_valid => peak_valid
       );
 
 end architecture;
