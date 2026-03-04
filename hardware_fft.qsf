@@ -198,11 +198,9 @@ set_global_assignment -name VERILOG_FILE hardware_fft.v
 set_global_assignment -name VHDL_FILE fft/peak_detector.vhd
 set_global_assignment -name VHDL_FILE fft/dual_port_ram.vhd
 set_global_assignment -name VHDL_FILE fft/fft.vhd
-set_global_assignment -name QIP_FILE nco/synthesis/nco.qip
 set_global_assignment -name SIP_FILE nco/simulation/nco.sip
 set_global_assignment -name VERILOG_FILE control_fft.v
 set_global_assignment -name VERILOG_FILE fft_wrapper.v
-set_global_assignment -name VERILOG_FILE testbench.v
 set_global_assignment -name SDC_FILE hardware_fft.SDC
 set_global_assignment -name VERILOG_FILE uart/uart.v
 set_global_assignment -name VERILOG_FILE seg_disp/seg7_lut.v
